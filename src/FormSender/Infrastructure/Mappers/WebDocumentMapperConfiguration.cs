@@ -8,7 +8,9 @@ namespace FormSender.Microservice.Infrastructure.Mappers
     {
         public WebDocumentMapperConfiguration()
         {
-            CreateMap<WebDocument, WebDocumentViewModel>().ReverseMap();
+            CreateMap<WebDocument, WebDocumentViewModel>()
+                .ForMember(doc => doc.StringType, opt => opt.MapFrom(doc => doc.Type.ToString()))
+                .ReverseMap();
         }
     }
 }

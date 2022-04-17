@@ -14,6 +14,7 @@ namespace FormSender.Microservice.Data.Configurations
             builder.Property(x => x.Id);
             builder.Property(x => x.Url).IsRequired();
             builder.Property(x => x.Type).IsRequired();
+            builder.Property(x => x.Size).HasDefaultValue(-1).IsRequired();
             builder.Property(x => x.Extension).HasMaxLength(10);
             builder.Property(x => x.CreatedAt).IsRequired();
         }

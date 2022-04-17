@@ -8,7 +8,8 @@ namespace FormSender.Microservice.ViewModels
         public string Url { get; set; }
         public int Size { get; set; }
         public string Extension { get; set; }
-        public SourceType Type { get; set; } // TODO: сделать стрингом
+        public SourceType Type { get; set; }
+        public string StringType { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }
