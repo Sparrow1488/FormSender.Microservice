@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FormSender\FormSender.Microservice.csproj" />
+    <ProjectReference Include="..\FormSender.Microservice\FormSender.Microservice.csproj" />
   </ItemGroup>
 
 </Project>

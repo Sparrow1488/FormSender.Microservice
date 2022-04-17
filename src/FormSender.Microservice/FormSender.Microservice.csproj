@@ -20,6 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FormSender.Entities\FormSender.Microservice.Entities.csproj" />
+    <ProjectReference Include="..\FormSender.Microservice.Entities\FormSender.Microservice.Entities.csproj" />
   </ItemGroup>
 </Project>
