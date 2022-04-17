@@ -1,4 +1,4 @@
-using FormSender.Data;
+using FormSender.Microservice.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 
-namespace FormSender
+namespace FormSender.Microservice
 {
     public class Startup
     {

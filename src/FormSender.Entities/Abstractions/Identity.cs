@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace FormSender.Entities.Abstractions
+namespace FormSender.Microservice.Entities.Abstractions
 {
     public abstract class Identity
     {

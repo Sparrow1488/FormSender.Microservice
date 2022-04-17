@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FormSender.ViewModels
+namespace FormSender.Microservice.ViewModels
 {
     public class ContentViewModel
     {

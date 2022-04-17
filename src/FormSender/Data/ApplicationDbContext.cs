@@ -1,9 +1,9 @@
-﻿using FormSender.Entities;
-using FormSender.Entities.Abstractions;
+﻿using FormSender.Microservice.Entities;
+using FormSender.Microservice.Entities.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
-namespace FormSender.Data
+namespace FormSender.Microservice.Data
 {
     public class ApplicationDbContext : DbContext
     {

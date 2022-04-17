@@ -1,4 +1,4 @@
-using FormSender.Data;
+using FormSender.Microservice.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,7 +7,7 @@ using Serilog.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace FormSender
+namespace FormSender.Microservice
 {
     public class Program
     {

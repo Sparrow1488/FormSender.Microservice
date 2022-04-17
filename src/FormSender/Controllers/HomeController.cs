@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using FormSender.Data;
-using FormSender.Entities;
-using FormSender.ViewModels;
+using FormSender.Microservice.Data;
+using FormSender.Microservice.Entities;
+using FormSender.Microservice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace FormSender.Controllers
+namespace FormSender.Microservice.Controllers
 {
     [ApiController]
     [Route("[controller]")]

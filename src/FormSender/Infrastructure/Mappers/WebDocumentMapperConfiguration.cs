@@ -1,8 +1,8 @@
-﻿using FormSender.Entities;
-using FormSender.Infrastructure.Mappers.Base;
-using FormSender.ViewModels;
+﻿using FormSender.Microservice.Entities;
+using FormSender.Microservice.Infrastructure.Mappers.Base;
+using FormSender.Microservice.ViewModels;
 
-namespace FormSender.Infrastructure.Mappers
+namespace FormSender.Microservice.Infrastructure.Mappers
 {
     public class WebDocumentMapperConfiguration : MapperConfigurationBase
     {

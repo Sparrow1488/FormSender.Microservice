@@ -1,4 +1,4 @@
-﻿namespace FormSender.Entities.Enums
+﻿namespace FormSender.Microservice.Entities.Enums
 {
     public enum SourceType
     {

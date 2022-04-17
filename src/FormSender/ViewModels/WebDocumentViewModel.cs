@@ -1,7 +1,7 @@
-﻿using FormSender.Entities.Enums;
+﻿using FormSender.Microservice.Entities.Enums;
 using System;
 
-namespace FormSender.ViewModels
+namespace FormSender.Microservice.ViewModels
 {
     public class WebDocumentViewModel
     {

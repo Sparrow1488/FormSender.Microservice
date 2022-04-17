@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace FormSender.Data.Migrations
+namespace FormSender.Microservice.Data.Migrations
 {
     public partial class ChangeMessageFormStructure : Migration
     {

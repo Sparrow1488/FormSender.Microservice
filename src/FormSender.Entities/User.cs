@@ -1,6 +1,6 @@
-﻿using FormSender.Entities.Abstractions;
+﻿using FormSender.Microservice.Entities.Abstractions;
 
-namespace FormSender.Entities
+namespace FormSender.Microservice.Entities
 {
     public class User : Identity
     {

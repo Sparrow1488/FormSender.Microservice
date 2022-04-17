@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FormSender.ViewModels
+namespace FormSender.Microservice.ViewModels
 {
     public class MessageFormViewModel
     {

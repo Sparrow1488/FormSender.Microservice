@@ -1,8 +1,8 @@
-﻿using FormSender.Entities;
+﻿using FormSender.Microservice.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FormSender.Data.Configurations
+namespace FormSender.Microservice.Data.Configurations
 {
     public class ContentConfiguration : IEntityTypeConfiguration<Content>
     {

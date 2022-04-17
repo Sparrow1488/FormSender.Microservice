@@ -1,6 +1,6 @@
-﻿using FormSender.Entities;
-using FormSender.Entities.Abstractions;
-using FormSender.Entities.Enums;
+﻿using FormSender.Microservice.Entities;
+using FormSender.Microservice.Entities.Abstractions;
+using FormSender.Microservice.Entities.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
-namespace FormSender.Data
+namespace FormSender.Microservice.Data
 {
     public static class DataInitializer
     {

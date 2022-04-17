@@ -1,8 +1,8 @@
-﻿using FormSender.Entities.Abstractions;
-using FormSender.Entities.Enums;
+﻿using FormSender.Microservice.Entities.Abstractions;
+using FormSender.Microservice.Entities.Enums;
 using System;
 
-namespace FormSender.Entities
+namespace FormSender.Microservice.Entities
 {
     public class WebDocument : Identity
     {

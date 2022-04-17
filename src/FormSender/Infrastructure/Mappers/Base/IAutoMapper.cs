@@ -1,4 +1,4 @@
-﻿namespace FormSender.Infrastructure.Mappers.Base
+﻿namespace FormSender.Microservice.Infrastructure.Mappers.Base
 {
     public interface IAutoMapper
     {

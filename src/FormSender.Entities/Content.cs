@@ -1,7 +1,7 @@
-﻿using FormSender.Entities.Abstractions;
+﻿using FormSender.Microservice.Entities.Abstractions;
 using System.Collections.Generic;
 
-namespace FormSender.Entities
+namespace FormSender.Microservice.Entities
 {
     public class Content : Identity
     {

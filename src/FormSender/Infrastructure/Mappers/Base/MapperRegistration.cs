@@ -1,10 +1,23 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Linq;
 
-namespace FormSender.Infrastructure.Mappers.Base
+namespace FormSender.Microservice.Infrastructure.Mappers.Base
 {
     public static class MapperRegistration
     {
+        public static MapperConfiguration GetMapperConfiguration()
+        {
+            var configuration = new MapperConfiguration(config =>
+            {
+                foreach (var profile in GetProfiles().Select(p => (Profile)Activator.CreateInstance(p)))
+                {
+                    config.AddProfile(profile);
+                }
+            });
+            return configuration;
+        }
+
         private static Type[] GetProfiles()
         {
             var automappers = typeof(Startup).Assembly
