@@ -1,5 +1,4 @@
 ﻿using FormSender.Microservice.Entities.Enums;
-using System;
 
 namespace FormSender.Microservice.ViewModels
 {
@@ -10,6 +9,5 @@ namespace FormSender.Microservice.ViewModels
         public string Extension { get; set; }
         public SourceType Type { get; set; }
         public string StringType { get; set; }
-        public DateTime CreatedAt { get; set; }
     }
 }

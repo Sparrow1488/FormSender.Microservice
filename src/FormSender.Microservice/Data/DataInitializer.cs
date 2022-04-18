@@ -39,15 +39,12 @@ namespace FormSender.Microservice.Data
                         {
                             Url = "https://cdn.kodixauto.ru/media//media/image/6257b93e825ab09b2f4ba19b",
                             Extension = ".jpeg",
-                            Type = SourceType.Image,
-                            CreatedAt = DateTime.Now
+                            Type = SourceType.Image
                         }}
             };
             var messageForm = new MessageForm()
             {
-                Content = formContent,
-                DateCreated = DateTime.Now,
-                DateUpdated = DateTime.Now,
+                Content = formContent
             };
             return messageForm;
         }

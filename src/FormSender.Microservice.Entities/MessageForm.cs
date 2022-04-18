@@ -3,10 +3,10 @@ using System;
 
 namespace FormSender.Microservice.Entities
 {
-    public class MessageForm : Identity
+    public class MessageForm : Identity, IAuditable
     {
         public Content Content { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DateUpdated { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

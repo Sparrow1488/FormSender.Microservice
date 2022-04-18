@@ -12,8 +12,8 @@ namespace FormSender.Microservice.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id);
-            builder.Property(x => x.DateCreated).IsRequired();
-            builder.Property(x => x.DateUpdated);
+            builder.Property(x => x.CreatedAt).IsRequired();
+            builder.Property(x => x.UpdatedAt);
             builder.HasOne(x => x.Content)
                    .WithOne(x => x.MessageForm)
                    .HasForeignKey<Content>(x => x.Id)

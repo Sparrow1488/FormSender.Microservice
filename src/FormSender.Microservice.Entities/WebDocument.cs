@@ -10,7 +10,6 @@ namespace FormSender.Microservice.Entities
         public int Size { get; set; }
         public string Extension { get; set; }
         public SourceType Type { get; set; }
-        public DateTime CreatedAt { get; set; }
         public Content Content { get; set; }
     }
 }
