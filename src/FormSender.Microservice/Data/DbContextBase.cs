@@ -11,6 +11,12 @@ namespace FormSender.Microservice.Data
     {
         public DbContextBase(DbContextOptions options) : base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Startup).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             DbSaveChangesConfigure();

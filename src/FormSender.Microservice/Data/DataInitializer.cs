@@ -1,5 +1,4 @@
 ﻿using FormSender.Microservice.Entities;
-using FormSender.Microservice.Entities.Abstractions;
 using FormSender.Microservice.Entities.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -35,12 +34,13 @@ namespace FormSender.Microservice.Data
             {
                 Title = "Просто.",
                 Text = "Первое сообщения, автоматически созданное при инициализации данного проекта",
-                Documents = new[] { new WebDocument()
-                        {
-                            Url = "https://cdn.kodixauto.ru/media//media/image/6257b93e825ab09b2f4ba19b",
-                            Extension = ".jpeg",
-                            Type = SourceType.Image
-                        }}
+                Documents = new[] { 
+                    new WebDocument()
+                    {
+                        Url = "https://cdn.kodixauto.ru/media//media/image/6257b93e825ab09b2f4ba19b",
+                        Extension = ".jpeg",
+                        Type = SourceType.Image
+                    }}
             };
             var messageForm = new MessageForm()
             {
