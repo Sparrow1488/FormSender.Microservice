@@ -33,7 +33,7 @@ namespace FormSender.Microservice.Data
             var formContent = new Content()
             {
                 Title = "Просто.",
-                Text = "Первое сообщения, автоматически созданное при инициализации данного проекта",
+                Text = "Первое сообщение, автоматически созданное при инициализации данного проекта",
                 Documents = new[] { 
                     new WebDocument()
                     {
