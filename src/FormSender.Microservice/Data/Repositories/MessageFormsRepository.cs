@@ -56,5 +56,8 @@ namespace FormSender.Microservice.Data.Repositories
 
         public Task UpdateAsync(MessageForm form) =>
             throw new NotImplementedException();
+
+        public async Task SaveAsync() =>
+            await _context.SaveChangesAsync();
     }
 }

@@ -24,7 +24,7 @@ namespace FormSender.Microservice.Infrastructure.Mappers
 
         private SourceType Convert(string sourceTypeStringify)
         {
-            if (Enum.TryParse<SourceType>(sourceTypeStringify, out var sourceType))
+            if (Enum.TryParse<SourceType>(sourceTypeStringify, ignoreCase: true, out var sourceType))
                 return sourceType;
             return SourceType.Unknown;
         }

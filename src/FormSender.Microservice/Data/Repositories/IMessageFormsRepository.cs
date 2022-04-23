@@ -12,5 +12,6 @@ namespace FormSender.Microservice.Data.Repositories
         Task<MessageForm> GetByIdAsync(Guid id);
         Task<IEnumerable<MessageForm>> GetAllAsync();
         void DeleteById(Guid id);
+        Task SaveAsync();
     }
 }

@@ -52,7 +52,7 @@ namespace FormSender.Microservice.Controllers
         }
 
         [HttpPost("CreateContent")]
-        public ActionResult<OperationResult<MessageFormViewModel>> CreateContent([FromBody]CreateContentViewModel viewModel)
+        public async Task<ActionResult<OperationResult<MessageFormViewModel>>> CreateContentAsync([FromBody]CreateContentViewModel viewModel)
         {
             var result = new OperationResult<MessageFormViewModel>();
             if (ModelState.IsValid)
@@ -60,14 +60,16 @@ namespace FormSender.Microservice.Controllers
                 var formContent = _mapper.Map<Content>(viewModel);
                 var form = _mapper.Map<MessageForm>(formContent);
                 var formViewModel = _mapper.Map<MessageFormViewModel>(form);
-
                 result.Messages.Add("Message form created success");
                 result.Body = formViewModel;
+
+                await _repository.InsertAsync(form);
+                await _repository.SaveAsync();
             }
             else
             {
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-                result.Errors.AddRange(errors.Select(err => err.ErrorMessage));
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(err => err.ErrorMessage);
+                result.Errors.AddRange(errors);
                 result.Ok = false;
             }
             
