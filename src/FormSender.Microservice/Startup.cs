@@ -1,4 +1,5 @@
 using FormSender.Microservice.Data;
+using FormSender.Microservice.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +24,10 @@ namespace FormSender.Microservice
         {
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "FormSender", Version = "v1" }));
-            services.AddDbContext<ApplicationDbContext>(opt => UseSqlServer(opt));
             services.AddAutoMapper(typeof(Startup).Assembly);
+
+            services.AddDbContext<ApplicationDbContext>(opt => UseSqlServer(opt));
+            services.AddTransient<IMessageFormsRepository, MessageFormsRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

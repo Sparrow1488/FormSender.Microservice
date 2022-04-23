@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using FormSender.Microservice.Data;
+using FormSender.Microservice.Data.Repositories;
 using FormSender.Microservice.Entities;
 using FormSender.Microservice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FormSender.Microservice.Controllers
 {
@@ -12,20 +15,25 @@ namespace FormSender.Microservice.Controllers
     [Route("api/[controller]")]
     public class MessagesController : Controller
     {
-        public MessagesController(IMapper mapper, ApplicationDbContext db)
+        public MessagesController(
+            IMapper mapper, 
+            ApplicationDbContext db,
+            IMessageFormsRepository repository)
         {
             _mapper = mapper;
             _db = db;
+            _repository = repository;
         }
 
         private readonly IMapper _mapper;
         private readonly ApplicationDbContext _db;
+        private readonly IMessageFormsRepository _repository;
 
-        [HttpGet("GetFirstMessage")]
-        public ActionResult<OperationResult<MessageFormViewModel>> GetFirstMessage()
+        [HttpGet("GetById/{id:Guid}")]
+        public async Task<ActionResult<OperationResult<MessageFormViewModel>>> GetById(Guid id)
         {
             var result = new OperationResult<MessageFormViewModel>();
-            var messageForm = GetFirstFromDbTwoJoin();
+            var messageForm = await _repository.GetByIdAsync(id);
             var viewModel = _mapper.Map<MessageFormViewModel>(messageForm);
             result.Body = viewModel;
             return Ok(result);
