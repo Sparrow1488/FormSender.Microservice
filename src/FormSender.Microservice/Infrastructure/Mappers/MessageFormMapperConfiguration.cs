@@ -9,12 +9,8 @@ namespace FormSender.Microservice.Infrastructure.Mappers
         public MessageFormMapperConfiguration()
         {
             CreateMap<MessageForm, MessageFormViewModel>().ReverseMap();
-            CreateMap<CreateMessageFormViewModel, MessageForm>()
-                .ForMember(x => x.Content, src => src.MapFrom(y => new Content()
-                {
-                    Title = y.Title,
-                    Text = y.Text
-                }))
+            CreateMap<Content, MessageForm>()
+                .ForMember(x => x.Content, src => src.MapFrom(y => y))
                 .ForMember(x => x.CreatedAt, src => src.Ignore())
                 .ForMember(x => x.UpdatedAt, src => src.Ignore())
                 .ForMember(x => x.Id, src => src.Ignore());

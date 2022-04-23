@@ -49,12 +49,16 @@ namespace FormSender.Microservice.Controllers
             return Ok(result);
         }
 
-        [HttpPost("CreateMessageForm")]
-        public ActionResult<OperationResult> CreateMessageForm([FromBody] CreateMessageFormViewModel viewModel)
+        [HttpPost("CreateContent")]
+        public ActionResult<OperationResult<MessageFormViewModel>> CreateContent([FromBody] CreateContentViewModel viewModel)
         {
-            var result = new OperationResult();
-            var messageForm = _mapper.Map<MessageForm>(viewModel);
+            var result = new OperationResult<MessageFormViewModel>();
+            var formContent = _mapper.Map<Content>(viewModel);
+            var form = _mapper.Map<MessageForm>(formContent);
+            var formViewModel = _mapper.Map<MessageFormViewModel>(form);
+
             result.Messages.Add("Message form created success");
+            result.Body = formViewModel;
             return result;
         }
     }

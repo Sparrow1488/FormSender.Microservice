@@ -2,7 +2,7 @@
 
 namespace FormSender.Microservice.ViewModels
 {
-    public class CreateMessageFormViewModel
+    public class CreateContentViewModel
     {
         public string Title { get; set; }
         public string Text { get; set; }

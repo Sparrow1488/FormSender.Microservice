@@ -9,6 +9,12 @@ namespace FormSender.Microservice.Infrastructure.Mappers
         public ContentMapperConfiguration()
         {
             CreateMap<Content, ContentViewModel>().ReverseMap();
+            CreateMap<CreateContentViewModel, Content>()
+                .ForMember(x => x.Documents, src => src.MapFrom(y => y.Documents))
+                .ForMember(x => x.Title, src => src.MapFrom(y => y.Title))
+                .ForMember(x => x.Text, src => src.MapFrom(y => y.Text))
+                .ForMember(x => x.MessageForm, src => src.Ignore())
+                .ForMember(x => x.Id, src => src.Ignore());
         }
     }
 }
