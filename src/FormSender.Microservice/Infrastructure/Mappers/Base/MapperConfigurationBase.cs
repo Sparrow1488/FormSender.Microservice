@@ -4,8 +4,6 @@ namespace FormSender.Microservice.Infrastructure.Mappers.Base
 {
     public class MapperConfigurationBase : Profile, IAutoMapper
     {
-        public MapperConfigurationBase()
-        {
-        }
+        public MapperConfigurationBase() { }
     }
 }

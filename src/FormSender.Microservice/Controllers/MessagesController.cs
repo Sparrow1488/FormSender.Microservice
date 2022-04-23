@@ -50,7 +50,7 @@ namespace FormSender.Microservice.Controllers
         }
 
         [HttpPost("CreateMessageForm")]
-        public ActionResult<OperationResult> CreateMessageForm([FromBody]CreateMessageFormViewModel viewModel)
+        public ActionResult<OperationResult> CreateMessageForm([FromBody] CreateMessageFormViewModel viewModel)
         {
             var result = new OperationResult();
             var messageForm = _mapper.Map<MessageForm>(viewModel);

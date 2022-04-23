@@ -36,10 +36,12 @@ namespace FormSender.Microservice.Data.Repositories
 
             if(dbResult != null)
             {
-                result = new MessageForm(id: dbResult.Id,
-                                   content: dbResult.Content,
-                                   createdAt: dbResult.CreatedAt,
-                                   updatedAt: dbResult.UpdatedAt);
+                result = new MessageForm();
+                result.Id = dbResult.Id;
+                result.Content = dbResult.Content;
+                result.CreatedAt = dbResult.CreatedAt;
+                result.UpdatedAt = dbResult.UpdatedAt;
+
                 if (result.Content != null)
                     result.Content.Documents = new List<WebDocument>() { dbResult.Document };
             }

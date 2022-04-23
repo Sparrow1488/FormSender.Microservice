@@ -1,5 +1,6 @@
 using FormSender.Microservice.Data;
 using FormSender.Microservice.Data.Repositories;
+using FormSender.Microservice.Infrastructure.Mappers.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace FormSender.Microservice
 
         public void ConfigureServices(IServiceCollection services)
         {
+            MapperRegistration.GetMapperConfiguration().AssertConfigurationIsValid();
+
             services.AddControllers();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "FormSender", Version = "v1" }));
             services.AddAutoMapper(typeof(Startup).Assembly);

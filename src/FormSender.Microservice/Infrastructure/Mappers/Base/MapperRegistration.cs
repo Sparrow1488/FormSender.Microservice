@@ -20,10 +20,9 @@ namespace FormSender.Microservice.Infrastructure.Mappers.Base
 
         private static Type[] GetProfiles()
         {
-            var automappers = typeof(Startup).Assembly
-                                             .GetTypes()
-                                             .Where(type => type.IsAssignableFrom(typeof(IAutoMapper)) &&
-                                                            !type.IsAbstract);
+            var types = typeof(Program).Assembly.GetTypes();
+            var mapperInterfaceType = typeof(IAutoMapper);
+            var automappers = types.Where(type => type.GetInterfaces().Contains(mapperInterfaceType) && !type.IsAbstract);
             return automappers.ToArray();
         }
     }
