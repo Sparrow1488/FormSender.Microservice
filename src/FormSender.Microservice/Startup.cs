@@ -25,7 +25,9 @@ namespace FormSender.Microservice
         {
             MapperRegistration.GetMapperConfiguration().AssertConfigurationIsValid();
 
-            services.AddControllers();
+            services.AddControllers().ConfigureApiBehaviorOptions(opt => 
+                opt.SuppressModelStateInvalidFilter = true);
+
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "FormSender", Version = "v1" }));
             services.AddAutoMapper(typeof(Startup).Assembly);
 

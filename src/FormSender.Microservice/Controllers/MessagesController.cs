@@ -5,6 +5,8 @@ using FormSender.Microservice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FormSender.Microservice.Controllers
@@ -50,15 +52,25 @@ namespace FormSender.Microservice.Controllers
         }
 
         [HttpPost("CreateContent")]
-        public ActionResult<OperationResult<MessageFormViewModel>> CreateContent([FromBody] CreateContentViewModel viewModel)
+        public ActionResult<OperationResult<MessageFormViewModel>> CreateContent([FromBody]CreateContentViewModel viewModel)
         {
             var result = new OperationResult<MessageFormViewModel>();
-            var formContent = _mapper.Map<Content>(viewModel);
-            var form = _mapper.Map<MessageForm>(formContent);
-            var formViewModel = _mapper.Map<MessageFormViewModel>(form);
+            if (ModelState.IsValid)
+            {
+                var formContent = _mapper.Map<Content>(viewModel);
+                var form = _mapper.Map<MessageForm>(formContent);
+                var formViewModel = _mapper.Map<MessageFormViewModel>(form);
 
-            result.Messages.Add("Message form created success");
-            result.Body = formViewModel;
+                result.Messages.Add("Message form created success");
+                result.Body = formViewModel;
+            }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                result.Errors.AddRange(errors.Select(err => err.ErrorMessage));
+                result.Ok = false;
+            }
+            
             return result;
         }
     }
