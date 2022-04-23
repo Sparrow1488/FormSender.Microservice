@@ -1,6 +1,5 @@
 ﻿using FormSender.Microservice.Entities.Abstractions;
 using FormSender.Microservice.Entities.Enums;
-using System;
 
 namespace FormSender.Microservice.Entities
 {

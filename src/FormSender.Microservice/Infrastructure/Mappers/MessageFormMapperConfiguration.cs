@@ -9,6 +9,14 @@ namespace FormSender.Microservice.Infrastructure.Mappers
         public MessageFormMapperConfiguration()
         {
             CreateMap<MessageForm, MessageFormViewModel>().ReverseMap();
+
+            //CreateMap<CreateMessageFormViewModel, MessageForm>()
+            //    .ForMember(form => form.Content,
+            //        opt => opt.MapFrom(c => new Content()
+            //        {
+            //            Text = c.Text,
+            //            Title = c.Title
+            //        }));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FormSender.Microservice.Data.Repositories;
+using FormSender.Microservice.Entities;
 using FormSender.Microservice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,7 +27,6 @@ namespace FormSender.Microservice.Controllers
         [HttpGet("GetById/{id:Guid}")]
         public async Task<ActionResult<OperationResult<MessageFormViewModel>>> GetByIdAsync(Guid id)
         {
-            // 3a765e39-2a9b-4476-a608-08da24fe72ab
             var result = new OperationResult<MessageFormViewModel>();
             var messageForm = await _repository.GetByIdAsync(id);
             if (messageForm == null)
@@ -47,6 +47,15 @@ namespace FormSender.Microservice.Controllers
             var viewModels = _mapper.Map<IEnumerable<MessageFormViewModel>>(messageForms);
             result.Body = viewModels;
             return Ok(result);
+        }
+
+        [HttpPost("CreateMessageForm")]
+        public ActionResult<OperationResult> CreateMessageForm([FromBody]CreateMessageFormViewModel viewModel)
+        {
+            var result = new OperationResult();
+            var messageForm = _mapper.Map<MessageForm>(viewModel);
+            result.Messages.Add("Message form created success");
+            return result;
         }
     }
 }

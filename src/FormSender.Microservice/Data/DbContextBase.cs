@@ -58,6 +58,11 @@ namespace FormSender.Microservice.Data
                     if (string.IsNullOrWhiteSpace(createdAt?.ToString()) 
                         || DateTime.Parse(createdAt.ToString()).Year < 1970)
                         entity.Property(nameof(IAuditable.CreatedAt)).CurrentValue = DateTime.Now;
+
+                    var updatedAt = entity.Property(nameof(IAuditable.UpdatedAt)).CurrentValue;
+                    if (string.IsNullOrWhiteSpace(updatedAt?.ToString())
+                        || DateTime.Parse(updatedAt.ToString()).Year < 1970)
+                        entity.Property(nameof(IAuditable.UpdatedAt)).CurrentValue = DateTime.Now;
                 }
             }
         }
