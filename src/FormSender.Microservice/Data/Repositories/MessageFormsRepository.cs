@@ -21,6 +21,7 @@ namespace FormSender.Microservice.Data.Repositories
 
         public async Task<MessageForm> GetByIdAsync(Guid id)
         {
+            MessageForm result = default;
             var dbResult = await (from form in _context.MessageForms
                                  join content in _context.Content on form.Id equals content.Id
                                  join document in _context.Documents on content.Id equals document.Id
@@ -31,13 +32,18 @@ namespace FormSender.Microservice.Data.Repositories
                                      Document = document,
                                      CreatedAt = form.CreatedAt,
                                      UpdatedAt = form.UpdatedAt
-                                 }).FirstAsync(x => x.Id == id);
-            var messageForm = new MessageForm(id: dbResult.Id,
+                                 })?.SingleOrDefaultAsync(x => x.Id == id);
+
+            if(dbResult != null)
+            {
+                result = new MessageForm(id: dbResult.Id,
                                    content: dbResult.Content,
                                    createdAt: dbResult.CreatedAt,
                                    updatedAt: dbResult.UpdatedAt);
-            messageForm.Content.Documents = new List<WebDocument>() { dbResult.Document };
-            return messageForm;
+                if (result.Content != null)
+                    result.Content.Documents = new List<WebDocument>() { dbResult.Document };
+            }
+            return result;
         }
 
         public async Task<IEnumerable<MessageForm>> GetAllAsync() =>

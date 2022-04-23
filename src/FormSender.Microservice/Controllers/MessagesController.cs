@@ -3,6 +3,7 @@ using FormSender.Microservice.Data.Repositories;
 using FormSender.Microservice.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FormSender.Microservice.Controllers
@@ -30,10 +31,21 @@ namespace FormSender.Microservice.Controllers
             var messageForm = await _repository.GetByIdAsync(id);
             if (messageForm == null)
             {
+                result.Ok = false;
                 result.Errors.Add("Not found by " + id.ToString());
             }
             var viewModel = _mapper.Map<MessageFormViewModel>(messageForm);
             result.Body = viewModel;
+            return Ok(result);
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<OperationResult<IEnumerable<MessageFormViewModel>>>> GetAllAsync()
+        {
+            var result = new OperationResult<IEnumerable<MessageFormViewModel>>();
+            var messageForms = await _repository.GetAllAsync();
+            var viewModels = _mapper.Map<IEnumerable<MessageFormViewModel>>(messageForms);
+            result.Body = viewModels;
             return Ok(result);
         }
     }
